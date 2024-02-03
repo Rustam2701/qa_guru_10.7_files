@@ -25,7 +25,7 @@ def test_users_xlsx(create_new_archive):
 
 def test_book_pdf(create_new_archive):
     path = f'{create_new_archive}/AByteofPythonRussian-2.02.pdf.pdf'
-    text_to_search = "About the Pragmatic Bookshelf"
+    text_to_search = "This book about PHP"
     with open(path, 'rb') as file:
         reader = PdfReader(file)
         text_found = any(text_to_search in page.extract_text() for page in reader.pages)
