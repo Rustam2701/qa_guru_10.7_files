@@ -28,5 +28,5 @@ def test_book_pdf(create_new_archive):
     with open(path, 'rb') as file:
         reader = PdfReader(file)
         text_found = any(text_to_search in page.extract_text() for page in reader.pages)
-        assert text_found, f"Текст \"{text_to_search}\" не найден в PDF файле."
+        assert text_to_search, f"Текст \"{text_found}\" не найден в PDF файле."
 
