@@ -7,8 +7,8 @@ from openpyxl import load_workbook
 def test_laborers_csv(create_new_archive):
     path = os.path.join(create_new_archive, 'testОснова.csv')
     with open(path) as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=",")
-        assert [row['id'] for row in reader] == ['K456653443']
+        reader = csv.DictReader(csvfile, delimiter=";")
+        assert [row['Должность'] for row in reader] == ['Продавец']
 
 
 
@@ -24,7 +24,7 @@ def test_users_xlsx(create_new_archive):
 
 def test_book_pdf(create_new_archive):
     path = f'{create_new_archive}/AByteofPythonRussian-2.02.pdf'
-    text_to_search = "This book about PHP"
+    text_to_search = "This book about PHPfghdfg"
     with open(path, 'rb') as file:
         reader = PdfReader(file)
         text_found = any(text_to_search in page.extract_text() for page in reader.pages)
