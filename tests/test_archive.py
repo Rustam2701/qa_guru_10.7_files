@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 
 def test_laborers_csv(create_new_archive):
     path = os.path.join(create_new_archive, 'testОснова.csv')
-    with open(path) as csvfile:
+    with open(path, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=";")
         assert [row['Должность'] for row in reader] == ['Продавец']
 
